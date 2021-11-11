@@ -20,14 +20,14 @@ jackson_family = FamilyStructure("Jackson")
 def handle_invalid_usage(error):
     return jsonify(error.to_dict()), error.status_code
 
-# generate sitemap with all your endpoints
+
 @app.route('/')
 def sitemap():
     return generate_sitemap(app)
 
 @app.route('/members', methods=['GET'])
 def handle_hello():
-    # this is how you can use the Family datastructure by calling its methods
+    
     members = jackson_family.get_all_members()
     response_body = {}
     for index in range(len(members)):
